@@ -5,6 +5,7 @@ def is_number(value):
     except ValueError:
         return False
 
+
 def get_valid_input(prompt):
     while True:
         value = input(prompt)
@@ -12,6 +13,7 @@ def get_valid_input(prompt):
             return float(value)
         else:
             print("Пожалуйста, введите число!")
+
 
 x = get_valid_input("Введите число x: ")
 e = get_valid_input("Введите число e: ")
