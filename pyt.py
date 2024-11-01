@@ -16,10 +16,10 @@ def get_valid_input(prompt):
 x = get_valid_input("Введите число x: ")
 e = get_valid_input("Введите число e: ")
 
-if x == 0 or x == 1:
-    print("x не может быть равен 0 или 1")
-elif e <= 0 or e >= 1:
-    print("e должно быть больше нуля и меньше единицы")
+if x <= 1:
+    print("x должно быть больше единицы")
+elif e <= 0 or e > 1:
+    print("e должно быть больше нуля и меньше либо равно единице")
 else:
     elem = 0
     summa = 0
@@ -34,4 +34,4 @@ else:
         
         previous_sum = summa
     
-    print(f"Сумма ряда с точностью e = {e}: {summa}")
+    print(f"Сумма ряда с точностью e = {e}: {summa}")   

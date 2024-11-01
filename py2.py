@@ -3,6 +3,8 @@ def numlen(num):
         num = float(str(num)[:-1])
     return num
 
+print("Таблица перевода из градусов по шкале Цельсия(°C) в гралусы шкалы Фаренгейта(°F)")
+
 print("°C: ", end =' ')
 fc = 15
 f = 15
