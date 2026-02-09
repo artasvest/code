@@ -1,26 +1,17 @@
-def numlen(num):
-    if len(str(num)) > 5:
-        num = float(str(num)[:-1])
-    return num
+sequence = input("Введите последовательность симоволов: ")
 
-print("Таблица перевода из градусов по шкале Цельсия(°C) в гралусы шкалы Фаренгейта(°F)")
+while not sequence:
+    print("Последовательность не может быть пустой!")
+    sequence = input("Введите последовательность симоволов: ")
 
-print("°C: ", end =' ')
-fc = 15
-f = 15
-c = 15
-while c < 30:
-    c+= 1.5
-    if c == 30:
-        print(c)
-    else:
-        print(c, end=' ')
-print("°F: ", end = ' ')
+letters = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+punctuatuion = set('.,!&;:-"\'()[]{}')
 
-while fc < 30:
-    fc+= 1.5
-    f = fc*1.8+32
-    if fc == 30:
-        print(numlen(f))
-    else:
-        print(numlen(f), end=' ')
+allowed = letters | punctuatuion
+
+result = {char for char in sequence if char in allowed}
+if not result:
+    print("В последовательности нет ни одной буквы от A до Z или знака препинания.")
+else:
+    print("Множество подходящих символов: ", result)
+    print("Количество подходящих символов: ", len(result))

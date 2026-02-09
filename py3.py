@@ -1,32 +1,21 @@
-def is_number(value):
-    try:
-        float(value)
-        return True
-    except ValueError:
-        return False
+print("Введите элементы множеств через пробел: ")
+A_input = input("Множество А: ").strip()
+B_input = input("Множество B: ").strip()
+C_input = input("Множество C: ").strip()
+if not A_input or not B_input or not C_input:
+    print("Все множества должны содержать элементы!")
+    exit()
 
-def get_valid_float_input(prompt):
-    while True:
-        value = input(prompt)
-        if is_number(value):
-            return float(value)
-        else:
-            print("Пожалуйста, введите число!")
+A = set(A_input.split())
+B = set(B_input.split())
+C = set(C_input.split())
 
-def get_valid_int_input(prompt):
-    while True:
-        value = input(prompt)
-        if value.isdigit():
-            return int(value)
-        else:
-            print("Пожалуйста, введите целое положительное число!")
+print(f"\nA = {A}")
+print(f"B = {B}")
+print(f"C = {C}")
 
-A = get_valid_float_input("Введите число A: ")
-N = get_valid_int_input("Введите число N: ")
-
-if N <= 0:
-    print("N должно быть больше чем 0")
+if not (B.issubset(A) and A.issubset(C)):
+    print("Ошибка: не выполнется условие B вл A вл С")
 else:
-    print("Все целые степени числа A от 1 до N:")
-    for i in range(1, N + 1):
-        print(round((A ** i),15))
+    X = (C - A) | B
+    print("Множество X: ", X)
